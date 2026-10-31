@@ -1,0 +1,924 @@
+
+/* =========================================
+   1. GENERAL STYLES
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f7fa;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    width: 94%;
+    max-width: 1600px;
+    margin: auto;
+}
+
+
+/* =========================================
+   2. HEADER AND NAVIGATION
+========================================= */
+
+.header {
+    background: white;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+    position: relative;
+    z-index: 1000;
+}
+
+.navbar {
+    min-height: 145px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 28px;
+}
+
+.logo {
+    color: #a88b39;
+    font-size: 34px;
+    font-weight: bold;
+    line-height: 1.25;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.logo span {
+    display: block;
+    color: #a88b39;
+    font-size: 20px;
+    font-weight: normal;
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 23px;
+}
+
+.nav-link {
+    background: none;
+    border: none;
+    color: #a88b39;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 10px 0;
+    font-family: inherit;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: #6e5720;
+}
+
+
+/* =========================================
+   3. DROPDOWN MENU
+========================================= */
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 270px;
+    max-height: 70vh;
+    overflow-y: auto;
+    background: white;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.13);
+    z-index: 1100;
+}
+
+.dropdown:hover > .dropdown-content,
+.dropdown:focus-within > .dropdown-content,
+.dropdown.open > .dropdown-content {
+    display: block;
+}
+
+.dropdown-content button {
+    display: block;
+    width: 100%;
+    padding: 12px 15px;
+    border: none;
+    background: white;
+    color: #444;
+    text-align: left;
+    font-size: 14px;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.dropdown-content button:hover {
+    background: #f3f0e7;
+    color: #a88b39;
+}
+
+
+/* =========================================
+   4. RESEARCH GROUP NESTED SUBMENU
+========================================= */
+
+.submenu-container {
+    position: relative;
+    display: block;
+    width: 100%;
+}
+
+.submenu-toggle {
+    display: block;
+    width: 100%;
+    padding: 12px 15px;
+    border: none;
+    background: white;
+    color: #444;
+    text-align: left;
+    font-size: 14px;
+    font-family: inherit;
+    cursor: pointer;
+}
+
+.submenu-toggle:hover {
+    background: #f3f0e7;
+    color: #a88b39;
+}
+
+.dropdown-content .submenu-content {
+    display: none;
+    position: static;
+    width: 100%;
+    min-width: 100%;
+    max-height: none;
+    padding-left: 18px;
+    background: #f5f7fa;
+    border: none;
+    box-shadow: none;
+}
+
+.dropdown-content .submenu-content.show-submenu {
+    display: block !important;
+}
+
+.submenu-content button {
+    display: block;
+    width: 100%;
+    padding: 11px 15px;
+    border: none;
+    background: #f5f7fa;
+    color: #444;
+    text-align: left;
+    font-size: 14px;
+    font-family: inherit;
+    cursor: pointer;
+}
+
+.submenu-content button:hover {
+    background: #eee8d8;
+    color: #a88b39;
+}
+
+
+/* =========================================
+   5. MOBILE MENU BUTTON
+========================================= */
+
+.menu-toggle {
+    display: none;
+    padding: 9px 14px;
+    border: none;
+    border-radius: 5px;
+    background: #a88b39;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+
+/* =========================================
+   6. PAGE DISPLAY CONTROL
+========================================= */
+
+.main-content {
+    min-height: 65vh;
+}
+
+.page {
+    display: none;
+    width: 90%;
+    max-width: 1400px;
+    margin: 42px auto;
+    padding: 34px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.06);
+}
+
+.page.active {
+    display: block;
+}
+
+.page h1 {
+    margin-bottom: 25px;
+    padding-bottom: 12px;
+    border-bottom: 3px solid #a88b39;
+    color: #16466f;
+    font-size: 34px;
+}
+
+.page h2 {
+    margin-bottom: 14px;
+    color: #16466f;
+}
+
+.page p {
+    margin-bottom: 14px;
+    font-size: 17px;
+}
+
+
+/* =========================================
+   7. HOME PAGE
+========================================= */
+
+#home {
+    display: none;
+    width: 100%;
+    max-width: none;
+    min-height: calc(100vh - 145px);
+    margin: 0;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
+    background: linear-gradient(110deg, #12466d, #2185bd);
+    color: white;
+}
+
+#home.active {
+    display: block;
+}
+
+.hero-container {
+    width: 92%;
+    max-width: 1650px;
+    min-height: calc(100vh - 145px);
+    margin: auto;
+    padding: 55px 0;
+    display: grid;
+    grid-template-columns: 1.5fr 0.8fr;
+    align-items: center;
+    gap: 55px;
+}
+
+
+/* LEFT SIDE CONTENT */
+
+.hero-content h3 {
+    margin-bottom: 24px;
+    color: #e1efff;
+    font-size: 19px;
+    letter-spacing: 2px;
+}
+
+.hero-content h1 {
+    margin: 0 0 18px;
+    padding: 0;
+    border: none;
+    color: white;
+    font-size: clamp(46px, 6vw, 84px);
+}
+
+.hero-content h2 {
+    margin-bottom: 28px;
+    color: #d9eaff;
+    font-size: clamp(20px, 2vw, 32px);
+    font-weight: normal;
+    line-height: 1.4;
+}
+
+.hero-content p {
+    max-width: 900px;
+    margin-bottom: 32px;
+    color: white;
+    font-size: 19px;
+    line-height: 1.8;
+}
+
+
+/* HOME BUTTONS */
+
+.hero-buttons {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.explore-btn,
+.download-btn {
+    display: inline-block;
+    padding: 15px 24px;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    font-size: 17px;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+.explore-btn {
+    background: #e5a21d;
+    border-color: #e5a21d;
+    color: #111;
+}
+
+.explore-btn:hover {
+    background: #f4b83e;
+    transform: translateY(-2px);
+}
+
+.download-btn {
+    background: transparent;
+    border-color: white;
+    color: white;
+}
+
+.download-btn:hover {
+    background: white;
+    color: #164f79;
+}
+
+
+/* RIGHT SIDE PROFILE CARD */
+
+.hero-profile {
+    width: 100%;
+    max-width: 450px;
+    justify-self: end;
+    padding: 32px 24px;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 28px;
+    background: rgba(255, 255, 255, 0.12);
+    text-align: center;
+}
+
+.profile-circle {
+    width: 255px;
+    height: 255px;
+    margin: 0 auto 22px;
+    overflow: hidden;
+    border: 7px solid white;
+    border-radius: 50%;
+    background: #dceeff;
+}
+
+.profile-circle img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-details p {
+    margin: 0;
+    color: white;
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+
+/* =========================================
+   8. ABOUT AND CONTENT CARDS
+========================================= */
+
+.about-card,
+.content-card {
+    margin-bottom: 24px;
+    padding: 26px;
+    border: 1px solid #e5eaf0;
+    border-radius: 10px;
+    background: white;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.04);
+}
+
+.qualification-item,
+.experience-item {
+    margin-bottom: 14px;
+    padding: 18px;
+    border-left: 4px solid #a88b39;
+    border-radius: 6px;
+    background: #f7f9fc;
+}
+
+.qualification-item h3,
+.experience-item h3 {
+    margin-bottom: 6px;
+    color: #16466f;
+    font-size: 19px;
+}
+
+.qualification-item p,
+.experience-item p {
+    margin-bottom: 4px;
+}
+
+.experience-item span {
+    color: #927322;
+    font-weight: bold;
+}
+
+
+/* =========================================
+   9. EXPERIENCE SUMMARY
+========================================= */
+
+.experience-summary {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    text-align: center;
+}
+
+.experience-summary div {
+    padding: 22px 14px;
+    border-radius: 9px;
+    background: #edf5fb;
+}
+
+.experience-summary h3 {
+    color: #16466f;
+    font-size: 27px;
+}
+
+.experience-summary p {
+    margin: 0;
+}
+
+
+/* =========================================
+   10. SPECIALIZATION LIST
+========================================= */
+
+.specialization-list {
+    padding-left: 24px;
+}
+
+.specialization-list li {
+    margin-bottom: 10px;
+    padding: 11px;
+    border-left: 4px solid #a88b39;
+    border-radius: 5px;
+    background: #f7f9fc;
+    font-size: 17px;
+}
+
+
+/* =========================================
+   11. CONTACT LINKS
+========================================= */
+
+.content-card a {
+    color: #176ca5;
+    text-decoration: none;
+}
+
+.content-card a:hover {
+    color: #a88b39;
+    text-decoration: underline;
+}
+
+.notice {
+    color: #755f25;
+    font-size: 14px !important;
+}
+
+
+/* =========================================
+   12. FOOTER
+========================================= */
+
+.footer {
+    padding: 21px 15px;
+    background: #123d5d;
+    color: white;
+    text-align: center;
+}
+
+.footer p {
+    margin: 0;
+    font-size: 14px;
+}
+
+
+/* =========================================
+   13. PUBLICATIONS SECTION
+========================================= */
+
+.publication-section {
+    margin-top: 25px;
+}
+
+.publication-count {
+    margin-bottom: 20px;
+    color: #927322;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.publication-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    margin-top: 25px;
+    align-items: stretch;
+}
+
+/* Support the .grid class used in your HTML */
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    margin-top: 25px;
+    align-items: stretch;
+}
+
+.publication-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-width: 0;
+    padding: 25px;
+    border: 1px solid #e5eaf0;
+    border-left: 5px solid #a88b39;
+    border-radius: 10px;
+    background: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.publication-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.10);
+}
+
+.publication-card .publication-year,
+.publication-card .year {
+    display: inline-block;
+    padding: 6px 13px;
+    margin-bottom: 15px;
+    background: #edf5fb;
+    color: #16466f;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.publication-card h3 {
+    width: 100%;
+    margin-bottom: 12px;
+    color: #173f60;
+    font-size: 18px;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+}
+
+.publication-card p {
+    width: 100%;
+    margin-bottom: 15px;
+    color: #555555;
+    font-size: 15px;
+    line-height: 1.7;
+    overflow-wrap: anywhere;
+}
+
+.publication-card a {
+    display: inline-block;
+    margin-top: auto;
+    padding-top: 10px;
+    color: #176ca5;
+    font-size: 15px;
+    font-weight: bold;
+    text-decoration: none;
+    overflow-wrap: anywhere;
+}
+
+.publication-card a:hover {
+    color: #a88b39;
+    text-decoration: underline;
+}
+
+.publication-grid .no-results,
+.grid .no-results {
+    grid-column: 1 / -1;
+    padding: 20px;
+    color: #777;
+    font-size: 16px;
+}
+
+
+/* =========================================
+   14. RESEARCH GUIDANCE TABLE
+========================================= */
+
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+    margin-top: 20px;
+}
+
+.guidance-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+}
+
+.guidance-table th,
+.guidance-table td {
+    border: 1px solid #ddd;
+    padding: 14px;
+    text-align: left;
+    vertical-align: top;
+    line-height: 1.6;
+}
+
+.guidance-table th {
+    background: #16466f;
+    color: white;
+    font-weight: 600;
+}
+
+.guidance-table tbody tr:nth-child(even) {
+    background: #f5f7fa;
+}
+
+.guidance-table tbody tr:hover {
+    background: #eef3f8;
+}
+
+
+/* =========================================
+   15. TABLET RESPONSIVE DESIGN
+========================================= */
+
+@media (max-width: 1100px) {
+
+    .navbar {
+        min-height: 125px;
+    }
+
+    .logo {
+        font-size: 28px;
+    }
+
+    .logo span {
+        font-size: 17px;
+    }
+
+    .nav-menu {
+        gap: 14px;
+    }
+
+    .nav-link {
+        font-size: 14px;
+    }
+
+    .hero-container {
+        gap: 28px;
+    }
+
+    .profile-circle {
+        width: 215px;
+        height: 215px;
+    }
+
+}
+
+
+/* =========================================
+   16. TABLET PUBLICATION GRID
+========================================= */
+
+@media (max-width: 900px) {
+
+    .publication-grid,
+    .grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
+    }
+
+}
+
+
+/* =========================================
+   17. MOBILE RESPONSIVE DESIGN
+========================================= */
+
+@media (max-width: 780px) {
+
+    .navbar {
+        min-height: auto;
+        padding: 18px 0;
+        flex-wrap: wrap;
+    }
+
+    .logo {
+        max-width: 78%;
+        white-space: normal;
+        font-size: 25px;
+    }
+
+    .logo span {
+        font-size: 15px;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-menu {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 3px;
+    }
+
+    .nav-menu.open {
+        display: flex;
+    }
+
+    .nav-link {
+        width: 100%;
+        padding: 12px;
+        text-align: left;
+    }
+
+    /* Mobile dropdown */
+
+    .dropdown-content {
+        position: static;
+        display: none;
+        width: 100%;
+        max-height: 300px;
+        border: none;
+        box-shadow: none;
+        padding-left: 14px;
+    }
+
+    .dropdown:hover > .dropdown-content,
+    .dropdown:focus-within > .dropdown-content {
+        display: none;
+    }
+
+    .dropdown.open > .dropdown-content {
+        display: block;
+    }
+
+    /* Mobile nested submenu */
+
+    .submenu-container {
+        width: 100%;
+    }
+
+    .submenu-toggle {
+        width: 100%;
+        padding: 12px;
+    }
+
+    .dropdown-content .submenu-content {
+        position: static;
+        display: none;
+        width: 100%;
+        min-width: 100%;
+        max-height: none;
+        padding-left: 15px;
+        border: none;
+        box-shadow: none;
+    }
+
+    .dropdown-content .submenu-content.show-submenu {
+        display: block !important;
+    }
+
+    /* Mobile home page */
+
+    .hero-container {
+        grid-template-columns: 1fr;
+        padding: 42px 0;
+        text-align: center;
+    }
+
+    .hero-content h3 {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    .hero-content p {
+        font-size: 17px;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .hero-profile {
+        justify-self: center;
+        max-width: 390px;
+    }
+
+    /* Mobile pages */
+
+    .page {
+        width: 94%;
+        margin: 24px auto;
+        padding: 22px;
+    }
+
+    .page h1 {
+        font-size: 27px;
+    }
+
+    .experience-summary {
+        grid-template-columns: 1fr;
+    }
+
+    /* Mobile publication cards */
+
+    .publication-card {
+        padding: 20px;
+    }
+
+    .publication-card p {
+        font-size: 15px;
+    }
+
+}
+
+
+/* =========================================
+   18. SMALL MOBILE SCREENS
+========================================= */
+
+@media (max-width: 600px) {
+
+    .publication-grid,
+    .grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+}
+
+
+/* =========================================
+   19. EXTRA SMALL MOBILE SCREENS
+========================================= */
+
+@media (max-width: 480px) {
+
+    .hero-content h1 {
+        font-size: 43px;
+    }
+
+    .hero-content h2 {
+        font-size: 19px;
+    }
+
+    .profile-circle {
+        width: 185px;
+        height: 185px;
+    }
+
+    .explore-btn,
+    .download-btn {
+        width: 100%;
+        padding: 13px;
+        font-size: 16px;
+    }
+
+    .about-card,
+    .content-card {
+        padding: 17px;
+    }
+
+}
